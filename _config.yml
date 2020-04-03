@@ -38,7 +38,7 @@ autopages:
     layouts:
       - category.html
     permalink: '/kategoria/:cat'
-    title: 'Wpisy z kategorii :cat'
+    title: 'Wpisy z kategorii: :cat'
     enabled: true
   tags:
     enabled: false
