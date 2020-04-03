@@ -1,0 +1,72 @@
+title: Tytuł strony
+email: my-email@example.com
+author: Sebastian Fojcik
+description: >-
+  Opis strony, który może
+  mieć kilka linii.
+keywords: blog, programowanie, studia, informatyka
+baseurl: ""
+github_username: KyrietS
+exclude:
+  - LICENSE.adoc
+  - README.adoc
+  - Gemfile
+  - Gemfile.lock
+
+sass:
+  # style: compressed
+  style: expanded
+
+# Stałe ścieżki używane w linkach
+path:
+  thumbnails: "img/"        # folder na miniaturki do wpisów
+  category: "kategoria/"    # folder na stronę z kategorią wpisu
+
+defaults:
+  - 
+    scope:     # ustawienia domyślne wpisów
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      permalink: "/wpis/:title/"
+      thumbnail: "placeholder.png"            # domyślna miniaturka dla wpisu
+
+autopages:
+  enabled: true
+  categories:
+    layouts:
+      - category.html
+    permalink: '/kategoria/:cat'
+    title: 'Wpisy z kategorii :cat'
+    enabled: true
+  tags:
+    enabled: false
+  collections:
+    enabled: false
+
+permalink: pretty
+
+# Pagination Settings
+pagination:
+  enabled: true
+  per_page: 3
+  permalink: '/:num/'
+  title: ':title | :num z :max'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+ # extension: htm
+ # indexpage: 'default'
+  trail: 
+    before: 2
+    after: 2
+
+asciidoc: {}
+asciidoctor:
+  base_dir: :docdir
+  safe: unsafe
+  attributes:
+    - idseparator=_
+    - source-highlighter=rouge
+    - icons=font

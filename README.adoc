@@ -1,0 +1,31 @@
+= Osobisty blog - kod źródłowy
+
+Blog stworzony na podstawie autorskiego szablonu w Jekyll.
+
+== Wymagania
+* Ruby
+* Gems / Rubygems
+* Bundler
+
+== Zbudowanie projektu
+Aby wygenerować stronę lokalnie należy w katalogu głównym projektu uruchomić kolejno:
+
+----
+$ bundle
+$ bundle exec jekyll build
+----
+
+Strona statyczna zostanie wygenerowana w katalogu `_site`.
+
+Zamiast budować stronę za każdym razem dobrze jest uruchomić automatyczne wprowadzanie zmian za pomocą polecenia:
+----
+$ bundle exec jekyll serve [-l,--liverealod]
+----
+Wtedy jekyll uruchomi serwer http pod lokalnym adresem.
+
+*bundle exec jekyll* vs *jekyll* - jeśli w systemie zainstalowana jest tylko jedna wersja jekyll'a, to oba polecenia robia to samo. Pierwsze z nich jeśli uruchomione w katalogu głównym projektu, odczytuje wersję jekyll'a z `Gemfile` i uruchmia ją (tę odpowiednią).
+
+== Automatyczne budowanie i publikowanie strony
+CI od Travis pozwala na zbudowanie strony u nich w chmurze i automatyczne wysłanie zawartości folderu `_site` do repozytorium, na którym hostowany jest blog.
+
+Każdy commit do tego repozytorium spowoduje zbudowanie i wypchnięcie gotowej strony w świat.

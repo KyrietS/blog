@@ -1,0 +1,17 @@
+language: ruby
+rvm:
+  - 2.5
+sudo: false
+
+script: bundle exec jekyll build
+
+deploy:
+  provider: pages
+  local_dir: _site
+  repo: KyrietS/kyriets.github.io
+  target_branch: master
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: false
+  on:
+    branch: master
