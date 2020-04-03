@@ -5,11 +5,12 @@ rvm:
 script: bundle exec jekyll build
 
 deploy:
-  provider: pages
-  local_dir: _site
-  repo: KyrietS/kyriets.github.io
-  target_branch: master
-  token: $GITHUB_TOKEN
-  keep_history: false
+  provider: pages:git                 # Deployment typu Github Pages
+  token: $GITHUB_TOKEN                # Zmienna środowiskowa z tokenem GH
+  edge: true                          # Aktywacja dpl v2 on Travis CI
+  local_dir: _site                    # Rezultat do opublikowania
+  repo: KyrietS/kyriets.github.io     # Docelowe repozytorium, w którym publikuję
+  target_branch: master               # Docelowa gałąź w docelowym repozytorium
+  keep_history: true                  # Zachowywanie historii w docelowym repozytorium
   on:
-    branch: master
+    branch: master                    # Build dokonaj na gałęzi master w tym repozytorium
