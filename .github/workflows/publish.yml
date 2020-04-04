@@ -27,13 +27,16 @@ jobs:
         ruby-version: 2.6.x
 
     - name: Bundle install          # Pobieranie niezbędnych pakietów
+      # Instalcja bundlera
+      # Ustawienie ścieżki do cache
+      # Instalacja pakietów do zbudowania projektu
       run: |
         ls -l
         ruby -v
         gem -v
-        gem install bundler                   # Instalacja bundlera
-        bundle config path vendor/bundle      # Używanie cache
-        bundle install --jobs 4 --retry 3     # Instalacja pakietów
+        gem install bundler
+        bundle config path vendor/bundle
+        bundle install --jobs 4 --retry 3
   
     - name: Build website                     # Budowanie (generowanie) statycznej strony
       run: bundle exec jekyll build
