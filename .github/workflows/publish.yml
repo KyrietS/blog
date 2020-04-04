@@ -39,7 +39,7 @@ jobs:
       run: bundle exec jekyll build
 
     - name: Publish website                                     # Publikowanie strony (wysyłanie do repo: kyriets.github.io.git)
-      uses: s0/git-publish-subdir-action@master
+      uses: KyrietS/git-publish-subdir-action@master
       env:
         FOLDER: _site                                           # Folder do opublikowania
         REPO: git@github.com:Kyriets/kyriets.github.io.git      # Repozytorium do którego mam wysłać folder
