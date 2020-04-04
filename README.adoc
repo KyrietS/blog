@@ -1,4 +1,4 @@
-= Osobisty blog - kod źródłowy
+= Blog - kod źródłowy (Jekyll)
 
 Blog stworzony na podstawie autorskiego szablonu w Jekyll.
 
@@ -11,7 +11,7 @@ Blog stworzony na podstawie autorskiego szablonu w Jekyll.
 Aby wygenerować stronę lokalnie należy w katalogu głównym projektu uruchomić kolejno:
 
 ----
-$ bundle
+$ bundle install
 $ bundle exec jekyll build
 ----
 
@@ -26,6 +26,10 @@ Wtedy jekyll uruchomi serwer http pod lokalnym adresem.
 *bundle exec jekyll* vs *jekyll* - jeśli w systemie zainstalowana jest tylko jedna wersja jekyll'a, to oba polecenia robia to samo. Pierwsze z nich jeśli uruchomione w katalogu głównym projektu, odczytuje wersję jekyll'a z `Gemfile` i uruchmia ją (tę odpowiednią).
 
 == Automatyczne budowanie i publikowanie strony
-CI od Travis pozwala na zbudowanie strony u nich w chmurze i automatyczne wysłanie zawartości folderu `_site` do repozytorium, na którym hostowany jest blog.
+Github Actions pozwala na zbudowanie projektu i wypchnięcie zawartości katalogu `_site` do repozytorium https://github.com/KyrietS/kyriets.github.io[KyrietS/kyriets.github.io], które następnie publikuje wszystkie znajdujące się tam pliki pod adresem: https://kyriets.github.io.
 
 Każdy commit do tego repozytorium spowoduje zbudowanie i wypchnięcie gotowej strony w świat.
+
+**Obecnie projekt nie korzysta już z Travis CI.**
+
+CI od Travis pozwala na zbudowanie strony u nich w chmurze i automatyczne wysłanie zawartości folderu `_site` do repozytorium, na którym hostowany jest blog.
