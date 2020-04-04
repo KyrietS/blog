@@ -38,7 +38,7 @@ jobs:
     - name: Build website                     # Budowanie (generowanie) statycznej strony
       run: bundle exec jekyll build
 
-    - name: Publish website                                     # Publikowanie strony (wysyłanie do repo: kyriets.github.io.git)
+    - name: Publish website                                     # Publikowanie strony (wysyłanie do repo: kyriets.github.io.git) 
       uses: KyrietS/git-publish-subdir-action@master
       env:
         FOLDER: _site                                           # Folder do opublikowania
