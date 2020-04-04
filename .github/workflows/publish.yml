@@ -1,0 +1,51 @@
+name: Publish static website
+
+# Uruchom akcję publikowania gdy nastąpi push do mastera
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest  # Budowanie strony na Ubuntu
+
+    steps:
+    - name: Checkout the files
+      uses: actions/checkout@v2     # Zasysa pliki z tego repo ($GITHUB_WORKSPACE)
+
+    - name: Access the cache
+      uses: actions/cache@v1        # Cache na paczki gems, aby nie zasysać ich wszystkich za każdym razem
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+
+    - name: Set up Ruby 2.6         # Instalowanie Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
+
+    - name: Bundle install          # Pobieranie niezbędnych pakietów
+      run: |
+        ls -l
+        ruby -v
+        gem -v
+        gem install bundler                   # Instalacja bundlera
+        bundle config path vendor/bundle      # Używanie cache
+        bundle install --jobs 4 --retry 3     # Instalacja pakietów
+  
+    - name: Build website                     # Budowanie (generowanie) statycznej strony
+      run: bundle exec jekyll build
+
+    - name: Publish website                                     # Publikowanie strony (wysyłanie do repo: kyriets.github.io.git)
+      uses: s0/git-publish-subdir-action@master
+      env:
+        FOLDER: _site                                           # Folder do opublikowania
+        REPO: git@github.com:Kyriets/kyriets.github.io.git      # Repozytorium do którego mam wysłać folder
+        BRANCH: master                                          # Gałąź repozytorium do którego mam wysłać folder
+        SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}      # Klucz prywatny SSH z prawem zapisu do repozytorium
+                                                                # https://github.com/s0/git-publish-subdir-action#usage-with-deploy-keys  
+                          
+        
+        
