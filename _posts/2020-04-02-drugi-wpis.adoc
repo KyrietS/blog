@@ -1,12 +1,52 @@
 = Tytuł drugiego wpisu
 :page-categories: [Programowanie, Życie na studiach]
 :page-thumbnail: student.png
+:stem: asciimath
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt accumsan dui at fermentum. Praesent ac lorem id ex rhoncus varius. Donec fringilla arcu quis mi dictum congue. Aliquam eleifend, justo in scelerisque sodales, turpis tellus tempus felis, eget accumsan odio justo eget massa. Nulla sed dapibus purus. Quisque rutrum tincidunt ipsum vulputate tincidunt. Nulla posuere porttitor ligula, vitae vehicula felis condimentum vel. Mauris eu pellentesque eros. Nullam fermentum fermentum pellentesque. Maecenas in felis tortor.
+Lorem ipsum #dolor sit amet#, consectetur adipiscing elit. stem:[sqrt(4) = 2] Nulla tincidunt accumsan dui at fermentum. Praesent ac lorem id ex rhoncus varius. Donec fringilla arcu quis mi dictum congue. Aliquam eleifend, "`double curved quotes`" justo in scelerisque sodales, turpis tellus tempus felis, eget accumsan odio justo eget massa. Nulla sed dapibus purus. 
 
-Nam nec ligula tempus, fringilla leo quis, pellentesque justo. Aenean semper augue in sem tempus gravida. Integer efficitur ut erat eu dignissim. Etiam vitae turpis iaculis, accumsan leo quis, scelerisque turpis. Suspendisse laoreet velit et tempor dapibus. Aenean hendrerit elementum elit vel pellentesque. Aliquam condimentum dictum massa, ac fringilla enim feugiat id. Maecenas varius ultricies auctor. Nam gravida molestie metus. Morbi fermentum fringilla ipsum, vel faucibus orci luctus eu. Nam ornare nec risus porta malesuada.
+[.big]##O##nce upon an infinite loop. Przeczytaj więcej na <<kotwica>>. Albo z tytułem <<kotwica, Tutaj>>
 
-In finibus aliquet sem quis pulvinar. Vivamus at ante vel diam ullamcorper commodo. Vivamus sagittis, leo et ullamcorper auctor, sapien enim tincidunt dui, ut porta enim turpis et sem. Aenean tincidunt ligula sit amet urna viverra posuere. Sed molestie, metus in tempus semper, libero arcu semper enim, quis suscipit nunc ex vel tellus. Donec consectetur, nisi eu euismod ultricies, odio nisi lacinia ipsum, a luctus urna nisi et quam. Vestibulum malesuada ante tellus, eu vestibulum ipsum luctus et. Cras eleifend sed magna vitae ullamcorper. Phasellus in nisi et lorem porttitor malesuada a sit amet dolor. Praesent ligula ante, condimentum ac viverra eu, posuere eget massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis vehicula sit amet sem sit amet congue. Nunc varius, dolor et fringilla ultrices, enim neque tincidunt mauris, non molestie nibh augue porta diam. Mauris fermentum at nibh sed ultricies. Ut laoreet nunc vel turpis tincidunt, ultrices finibus diam euismod.
+Quisque latexmath:[C = \alpha + \beta Y^{\gamma} + \epsilon] rutrum tincidunt ipsum vulputate tincidunt. Nulla posuere porttitor ligula, vitae vehicula felis condimentum vel. Mauris eu pellentesque eros. Nullam fermentum fermentum pellentesque. Maecenas in felis [.small]#tortor#.
+
+[latexmath]
+++++
+\sum_{n=1}^{\infty} 2^{-n} = 1
+++++
+
+Ala ma kota
+
+.Optional Title
+[NOTE]
+This is an example
+single-paragraph note.
+
+Nam nec ligula tempus, fringilla leo quis, pellentesque justo. latexmath:[\sum_{n=1}^{\infty} 2^{-n} = 1] Aenean semper augue in sem tempus gravida. Integer efficitur ut erat eu dignissim. Etiam vitae turpis iaculis, accumsan leo quis, scelerisque turpis. Suspendisse laoreet velit et tempor dapibus. Aenean hendrerit elementum elit vel pellentesque. Aliquam condimentum dictum massa, ac fringilla enim feugiat id. Maecenas varius ultricies auctor. Nam gravida molestie metus. Morbi fermentum fringilla ipsum, vel faucibus orci luctus eu. Nam ornare nec risus porta malesuada.
+
+Wstawka matematyczna **asciimath**
+[asciimath]
+++++
+sum_(i=1)^n i^3=((n(n+1))/2)^2 + (1+2)
+++++
+
+'''
+
+[#kotwica]
+== Nagłówek dla sekcji
+In finibus aliquet sem quis pulvinar. Vivamus at ante vel diam ullamcorper commodo. Vivamus sagittis, leo et ullamcorper auctor, sapien enim tincidunt dui, ut porta enim turpis et sem. Aenean tincidunt ligula sit amet urna viverra posuere. Sed molestie, metus in tempus semper, libero arcu semper enim, quis suscipit nunc ex vel tellus. Donec consectetur, nisi eu euismod ultricies, odio nisi lacinia ipsum, a luctus urna nisi et quam. Vestibulum malesuada ante tellus, eu vestibulum ipsum luctus et. Cras eleifend sed magna vitae ullamcorper. Phasellus in nisi et lorem porttitor malesuada a sit amet dolor. 
+
+* [*] checked
+* [x] also checked
+* [ ] not checked
+*     normal list item
+
+Praesent ligula ante, condimentum ac viverra eu, posuere eget massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis vehicula sit amet sem sit amet congue. Nunc varius, dolor et fringilla ultrices, enim neque tincidunt mauris, non molestie nibh augue porta diam. Mauris fermentum at nibh sed ultricies. Ut laoreet nunc vel turpis tincidunt, ultrices finibus diam euismod.
+
+// Asciidoctor użyje surowego tekstu wewnątrz bloku (++++).
+// A więc <strong> zostanie zinterpretowany przez przeglądarkę.
+++++
+Jakiś tam <strong>sobie</strong> tekst.
+++++
 
 Nullam vitae libero tempus, sodales justo vitae, tincidunt lorem. In vitae interdum est. Etiam finibus nunc nec dui luctus volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum auctor, orci id commodo mattis, lectus dui convallis massa, vitae facilisis lacus nulla sed velit. Mauris laoreet odio eu enim tincidunt, sit amet dapibus elit ornare. Cras luctus porttitor ex nec eleifend. Morbi ut orci id metus ultrices pretium at vitae magna. Duis finibus sagittis sapien id finibus. Maecenas quis interdum ante.
 
