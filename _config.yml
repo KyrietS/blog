@@ -70,3 +70,4 @@ asciidoctor:
     - idseparator=_
     - source-highlighter=rouge
     - icons=font
+    - sectanchors
