@@ -13,7 +13,7 @@ jobs:
     - name: Checkout the files
       uses: actions/checkout@v2     # Zasysa pliki z tego repo ($GITHUB_WORKSPACE)
 
-    - name: Access the cache
+    - name: Cache for gems
       uses: actions/cache@v1        # Cache na paczki gems, aby nie zasysać ich wszystkich za każdym razem
       with:
         path: vendor/bundle
@@ -25,6 +25,9 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
+
+   # - name: Install GNU Scientific Library
+   #   run: sudo apt-get -y install libgsl-dev
 
     - name: Bundle install          # Pobieranie niezbędnych pakietów
       # Instalcja bundlera
@@ -39,7 +42,10 @@ jobs:
         bundle install --jobs 4 --retry 3
   
     - name: Build website                     # Budowanie (generowanie) statycznej strony
-      run: bundle exec jekyll build
+      run: bundle exec jekyll build --lsi --strict_front_matter
+      # Użyte opcje:
+      #   --lsi  używa Latent Semantic Indexing do generowania related_posts
+      #   --strict_front_matter  przerywa budowę, gdy zostanie napotkany błąd w front matter
 
     - name: Publish website                                     # Publikowanie strony (wysyłanie do repo: kyriets.github.io.git) 
       uses: KyrietS/git-publish-subdir-action@master
