@@ -26,8 +26,8 @@ jobs:
       with:
         ruby-version: 2.6.x
 
-   # - name: Install GNU Scientific Library
-   #   run: sudo apt-get -y install libgsl-dev
+    - name: Install GNU Scientific Library
+      run: sudo apt-get -y install libgsl-dev
 
     - name: Bundle install          # Pobieranie niezbędnych pakietów
       # Instalcja bundlera
