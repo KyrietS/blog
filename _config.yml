@@ -19,8 +19,8 @@ sass:
 
 # Stałe ścieżki używane w linkach
 path:
-  thumbnails: "img/"        # folder na miniaturki do wpisów
-  category: "kategoria/"    # folder na stronę z kategorią wpisu
+  thumbnails: "assets/posts/thumbnails/"  # folder na miniaturki do wpisów
+  category: "kategoria/"                  # folder na stronę z kategorią wpisu
 
 defaults:
   - 
@@ -67,6 +67,7 @@ asciidoctor:
   base_dir: :docdir
   safe: unsafe
   attributes:
+    - imagesdir=/assets/posts/media/
     - idseparator=_
     - source-highlighter=rouge
     - icons=font
