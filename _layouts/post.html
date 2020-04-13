@@ -21,6 +21,12 @@ layout: default
 
     </article>
 
+    {% assign created_at = page.date | date: "%Y-%m-%d" %}
+    {% assign modified_at = page.last_modified_at | date: "%Y-%m-%d" %}
+    {% if created_at != modified_at %}
+    <p class="last-modified-at">Ostatnia modyfikacja: {% include date.html date=page.last_modified_at %}</p>
+    {% endif %}
+
     <h2>Zobacz jeszcze </h2>
     <ul>
         {% for post in site.related_posts limit:5 %}

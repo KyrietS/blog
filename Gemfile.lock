@@ -37,6 +37,9 @@ GEM
     jekyll-asciidoc (3.0.0)
       asciidoctor (>= 1.5.0)
       jekyll (>= 3.0.0)
+    jekyll-last-modified-at (1.2.1)
+      jekyll (>= 3.7, < 5.0)
+      posix-spawn (~> 0.3.9)
     jekyll-paginate-v2 (3.0.0)
       jekyll (>= 3.0, < 5.0)
     jekyll-sass-converter (2.1.0)
@@ -55,6 +58,7 @@ GEM
     mercenary (0.3.6)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
+    posix-spawn (0.3.13)
     public_suffix (4.0.3)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
@@ -75,6 +79,7 @@ DEPENDENCIES
   gsl
   jekyll (~> 4.0)
   jekyll-asciidoc (~> 3.0)
+  jekyll-last-modified-at
   jekyll-paginate-v2 (~> 3.0)
   jekyll-sitemap
 
