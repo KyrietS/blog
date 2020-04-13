@@ -5,6 +5,7 @@ description: >-
   Opis strony, który może
   mieć kilka linii.
 keywords: blog, programowanie, studia, informatyka
+url: https://kyriets.github.io
 baseurl: ""
 github_username: KyrietS
 exclude:
