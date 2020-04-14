@@ -36,11 +36,14 @@ defaults:
 autopages:
   enabled: true
   categories:
+    enabled: true
     layouts:
       - category.html
-    permalink: '/kategoria/:cat'
     title: 'Wpisy z kategorii: :cat'
-    enabled: true
+    permalink: '/kategoria/:cat'
+    slugify:
+      mode: 'latin'             # zamienia znaki specjalne z nazwy kategorii ą -> a
+      cased: false              # wszystkie litery zamienia na małe A -> a
   tags:
     enabled: false
   collections:

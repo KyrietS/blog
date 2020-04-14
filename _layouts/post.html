@@ -9,7 +9,8 @@ layout: default
             <p>{{ page.date | date: "%d.%m.%Y" }}
 
                 {% for category in page.categories %}
-                    | <a href="{{site.path.category | append: category | downcase | relative_url }}">{{category}}</a>
+                {% assign category_slug = category | downcase | slugify: "latin" %}
+                    | <a href="{{site.path.category | append: category_slug | relative_url }}">{{category}}</a>
                 {% endfor %}
 
                 | <i>{{ site.author }}</i></p>

@@ -47,7 +47,8 @@
 
                 {% for category in site.categories reversed %}
                 {% assign category_name = category | first %}
-                    <a href="{{ site.path.category | append: category_name | downcase | relative_url }}" class="w3-bar-item w3-button">{{category_name}}</a>
+                {% assign category_slug = category_name | downcase | slugify: "latin" %}
+                    <a href="{{ site.path.category | append: category_slug | relative_url }}" class="w3-bar-item w3-button">{{category_name}}</a>
                 {% endfor %}
 
                 <!-- <a href="category.html" class="w3-bar-item w3-button">Programowanie</a>
