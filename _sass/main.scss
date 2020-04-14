@@ -90,7 +90,7 @@ a > .category-card:hover {
     top: 0;
     z-index: 99;
     transition: top 0.3s;
-    overflow: visible !important;
+    overflow-y: scroll;
 }
 #mobile-navbar {
     width: 100%;
@@ -112,11 +112,21 @@ a > .category-card:hover {
 .w3-dropdown-button {
     text-align: center;
 }
+.w3-dropdown-content {
+    z-index: 10;
+}
 #navigation .w3-dropdown-content .w3-bar-item{
     display: block;
     clear: both;
     width: 100%;
     /* width: auto !important; */
+}
+#dropdown-search {
+    z-index: 4;    // zmniejszam z-index, aby nie zasłaniał podmenu na mobilce 
+}
+#dropdown-search-info {
+    font-size: 0.8em; 
+    border-top: 1px solid gray;
 }
 /* Ekran większy niż 600px */
 @media (min-width:600px) {
@@ -161,6 +171,7 @@ a > .category-card:hover {
 
     /* Nawigacja staje się desktopowa */
     #navigation {
+        overflow: visible !important;
         display: block !important;
         font-size: inherit;
         height: inherit;

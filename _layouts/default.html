@@ -61,10 +61,19 @@
         <a href="#" class="w3-bar-item w3-button w3-mobile">Kontakt</a>
 
         <!-- Wyszukaj -->
-        <div class="w3-right">
-            <input type="text" class="w3-bar-item w3-input w3-white w3-mobile w3-left w3-border-left w3-left-align" placeholder="Wyszukaj...">
-            <button class="w3-bar-item w3-button w3-green w3-mobile w3-left"><i class="fa fa-search"></i></button>
-        </div>
+        <form action="/wyszukaj/" method="get" class="w3-right" autocomplete="off">
+            <button class="w3-bar-item w3-right w3-button w3-green w3-mobile"><i class="fa fa-search"></i></button>
+            <input type="text" id="dropdown-search-input" class="w3-bar-item w3-input w3-white w3-mobile w3-border-left w3-left-align" 
+                style="display: inline-block; float: none;" placeholder="Wyszukaj..." name="s">
+            <div id="dropdown-search" class="w3-dropdown-content w3-card w3-bar-block">
+                <!-- Tymczasowo zahardkodowane wpisy -->
+                <a href="category.html" class="w3-bar-item w3-button">Tytuł trzeciego wpisu o programowaniu</a>
+                <a href="#" class="w3-bar-item w3-button">Tytuł drugiego wpisu</a>
+                <a href="#" class="w3-bar-item w3-button">Dlaczego to</a>
+
+                <span id="dropdown-search-info" class="w3-bar-item">Kilka znalezionych wpisów.<br>Wciśniej enter, aby wyszukać dokładniej.</span>
+            </div>
+        </form>
 
         <button class="w3-bar-item w3-button w3-hide-medium w3-hide-large" onclick="nav_close()">Zamknij <i class="fa fa-remove"></i></button>
 

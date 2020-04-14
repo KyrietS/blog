@@ -1,0 +1,63 @@
+---
+layout: default
+title: Wyszukiwarka
+permalink: /wyszukaj/
+---
+
+<style>
+    .section-header {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .section-header h2 {
+        margin-right: 10px;
+    }
+    .section-header input#search-input {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid grey;
+        line-height: 1em;
+    }
+    .section-header input#search-input:focus {
+        outline: none;
+    }
+    /* Ekran większy niż 600px */
+    @media (min-width:600px) {
+        .section-header {
+            flex-wrap: nowrap;
+        }
+    }
+</style>
+
+<!-- Strona z rezultatami wyszukania -->
+<div class="w3-padding-large w3-content">
+
+    <div class="w3-left-align section-header">
+        <h2 class="w3-xxxlarge" style="display: inline-block;">Wyszukaj:</h2>
+        <input type="text" name="search" id="search-input" class="w3-xxxlarge w3-animate-input">
+    </div>
+    <hr>
+
+    <p class="w3-large">
+        Ups! Wygląda na to, że nic nie znaleziono ._.
+    </p>
+
+</div>
+
+<script>
+const updateUrlParameter = (value) => window.history.pushState('', '', `?s=${encodeURIComponent(value)}`);
+const searchInput = document.getElementById('search-input');
+searchInput.addEventListener('input', () => updateUrlParameter(searchInput.value));
+
+
+// Jeśli w adresie znajduje się jakieś zapytanie ?s=query, to umieść je w labelu i wyszukaj
+const parser = document.createElement('a');
+parser.href = window.location.href;
+
+if(parser.href.includes('?s=')) {
+    const searchquery = decodeURIComponent(parser.href.substring(parser.href.indexOf('=') + 1).replace(/\+/g, '%20'));
+    searchInput.value = searchquery;
+    //doSearch(searchquery);
+}
+
+</script>
