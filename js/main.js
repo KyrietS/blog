@@ -28,12 +28,13 @@ dropdownSearchInfo.addEventListener('mousedown', () => dropdownSearch.classList.
 
 // Menu boczne na telefonie
 function nav_open() {
-    var x = document.getElementById("navigation");
-    x.style.display = "block";
+    const nav = document.getElementById("navigation");
+    nav.style.display = "block";
 }
   
 function nav_close() {
-    document.getElementById("navigation").style.display = "none";
+    const nav = document.getElementById("navigation");
+    nav.style.display = "none";
 }
 
 // Automatyczne przyklejanie się paska menu
