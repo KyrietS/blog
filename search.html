@@ -34,21 +34,60 @@ permalink: /wyszukaj/
 
     <div class="w3-left-align section-header">
         <h2 class="w3-xxxlarge" style="display: inline-block;">Wyszukaj:</h2>
-        <input type="text" name="search" id="search-input" class="w3-xxxlarge w3-animate-input">
+        <input type="text" name="search" id="search-input" class="w3-xxxlarge w3-animate-input" autocomplete="off">
     </div>
     <hr>
 
-    <p class="w3-large">
-        Ups! Wygląda na to, że nic nie znaleziono ._.
-    </p>
+    <div id="search-results"></div>
 
 </div>
 
+<script src="{{ '/js/search.js' | relative_utl }}"></script>
 <script>
+const sjs = SimpleJekyllSearch({
+  searchInput: document.getElementById('search-input'),
+  resultsContainer: document.getElementById('search-results'),
+  limit: 7,
+  success: () => {},
+  json: [
+    {% for post in site.posts %} {
+        "title": {{post.title | jsonify}},
+        "url": {{ post.url | jsonify }},
+        "image": {{ site.path.thumbnails | append: post.thumbnail | relative_url | jsonify }},
+        "date": {{ post.date | date: "%d.%m.%Y" | jsonify }},
+        "excerpt": {{ post.excerpt | strip_newlines | jsonify }},
+        "categories": {{ post.categories | join: " | " | jsonify }}
+    }
+    {% unless forloop.last %}, {% endunless %}
+    {% endfor %}
+  ],
+  noResultsText: `
+    <p class="w3-large">
+        Ups! Wygląda na to, że nic nie znaleziono ._.
+    </p>
+  `,
+  searchResultTemplate: `
+    <a href="{url}">
+        <div class="w3-card w3-row w3-margin-top post-card">
+            <h3 class="w3-padding-small w3-center">{title}</h3>
+            <div class="w3-row">
+                <div class="w3-col m3 l2">
+                    <img src="{image}" alt="Miniaturka do wpisu">
+                </div>
+                <div class="w3-rest w3-padding-small">
+                    {excerpt}
+                    <div class="w3-right-align w3-small w3-text-gray">
+                        <span>{categories} | {date}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>`
+});
+
 const updateUrlParameter = (value) => window.history.pushState('', '', `?s=${encodeURIComponent(value)}`);
 const searchInput = document.getElementById('search-input');
 searchInput.addEventListener('input', () => updateUrlParameter(searchInput.value));
-
 
 // Jeśli w adresie znajduje się jakieś zapytanie ?s=query, to umieść je w labelu i wyszukaj
 const parser = document.createElement('a');
@@ -57,7 +96,6 @@ parser.href = window.location.href;
 if(parser.href.includes('?s=')) {
     const searchquery = decodeURIComponent(parser.href.substring(parser.href.indexOf('=') + 1).replace(/\+/g, '%20'));
     searchInput.value = searchquery;
-    //doSearch(searchquery);
+    sjs.search(searchquery);
 }
-
 </script>
