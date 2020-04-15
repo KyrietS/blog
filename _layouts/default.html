@@ -69,12 +69,8 @@
             <input type="text" id="dropdown-search-input" class="w3-bar-item w3-input w3-white w3-mobile w3-border-left w3-left-align" 
                 style="display: inline-block; float: none;" placeholder="Wyszukaj..." name="s">
             <div id="dropdown-search" class="w3-dropdown-content w3-card w3-bar-block">
-                <!-- Tymczasowo zahardkodowane wpisy -->
-                <a href="#" class="w3-bar-item w3-button">Tytuł trzeciego wpisu o programowaniu</a>
-                <a href="#" class="w3-bar-item w3-button">Tytuł drugiego wpisu</a>
-                <a href="#" class="w3-bar-item w3-button">Dlaczego to</a>
-
-                <span id="dropdown-search-info" class="w3-bar-item">Kilka znalezionych wpisów.<br>Wciśniej enter, aby wyszukać dokładniej.</span>
+                <div id="dropdown-search-results"></div>
+                <span id="dropdown-search-info" class="w3-bar-item">Kilka niedawnych wpisów.<br>Wciśniej enter, aby wyszukać dokładniej.</span>
             </div>
         </form>
 
@@ -116,6 +112,24 @@
 <script src="{{ "/js/main.js" | relative_url }}"></script>
 
 {% include mathjax-v3.html %}
+
+<script src="{{ '/js/search.js' | relative_utl }}"></script>
+<script>
+SimpleJekyllSearch({
+  searchInput: document.getElementById('dropdown-search-input'),
+  resultsContainer: document.getElementById('dropdown-search-results'),
+  limit: 4,
+  success: () => {},
+  json: [
+    {%- for post in site.posts limit:100 -%} 
+    {"title":{{post.title | jsonify}},"url":{{ post.url | jsonify }}}
+    {%- unless forloop.last -%}, {%- endunless -%}
+    {%- endfor -%}
+  ],
+  noResultsText: '',
+  searchResultTemplate: `<a href="{url}" class="w3-bar-item w3-button">{title}</a>`
+});
+</script>
 
 </body>
 </html>
