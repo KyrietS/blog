@@ -97,17 +97,28 @@ img {
 }
 
 /******* Code *******/
-code, pre {
+pre, code {
     color: rgba(0,0,0,0.8);
     font-family: 'Droid Sans Mono', 'Consolas', 'Courier New', monospace;
     font-weight: normal;
     text-rendering: optimizeSpeed;
-    font-size: 0.9em;
     tab-size: 4;
     margin: 0;
     margin-bottom: 1.25em;
 }
-pre {
+*:not(pre)>code {
+    font-size: .9em;
+    font-weight: normal;
+    color: rgba(0,0,0,0.9);
+    /* background-color: #f7f7f8; */
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    line-height: 1.45;
+    padding: 0.1em 0.5ex;
+    word-spacing: -.15em;
+}
+.content > pre {
+    font-size: 0.9em;
     line-height: 1.45;
 }
 .listingblock pre,
@@ -141,11 +152,42 @@ pre {
     content: attr(data-lang);
     position: absolute;
     text-transform: uppercase;
-    font-size: .75em;
+    font-size: .9em;
     top: 0.425rem;
     right: 0.5rem;
     line-height: 1;
     color: #999;
+}
+pre.rouge .hll {
+    background-color: #ffc;
+}
+pre.rouge .hll * {
+    background-color: initial;
+}
+table.linenotable {
+    padding: 0;
+    margin: 0;
+    border: none;
+
+    td {
+        padding: 0;
+    }
+    pre {
+        padding: 0;
+        margin: 0;
+    }
+    .lineno {
+        white-space: pre-line;
+        text-align: right;
+        padding: 0;
+        padding-right: 8px;
+        margin-left: -5px;
+        border-radius: 0;
+        border-right: 1px solid #999;
+    }
+    .code pre {
+        padding-left: 0.5em;
+    }
 }
 
 /******* Lists *******/

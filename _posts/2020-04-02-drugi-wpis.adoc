@@ -289,8 +289,8 @@ DEPENDENCIES
 ----
 
 === Code block with title and syntax highlighting
-.app.rb
-[source,c++]
+.main.cpp
+[source,c++,linenums,highlight=8..9]
 ----
 #include <iostream>
 
