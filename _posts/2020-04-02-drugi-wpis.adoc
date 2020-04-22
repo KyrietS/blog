@@ -5,21 +5,474 @@
 
 Lorem ipsum #dolor sit amet#, consectetur adipiscing elit. stem:[sqrt(4) = 2] Nulla tincidunt accumsan dui at fermentum. Praesent ac lorem id ex rhoncus varius. Donec fringilla arcu quis mi dictum congue. Aliquam eleifend, "`double curved quotes`" justo in scelerisque sodales, turpis tellus tempus felis, eget accumsan odio justo eget massa. Nulla sed dapibus purus. 
 
-[.big]##O##nce upon an infinite loop. Przeczytaj więcej na <<kotwica>>. Albo z tytułem <<kotwica, Tutaj>>
+== Paragraphs
+
+Paragraphs don’t require any special markup in AsciiDoc. A paragraph is just one or more lines of consecutive text.
+
+To begin a new paragraph, separate it by at least one blank line. Newlines within a paragraph are not displayed.
+
+'''
+
+== Literals
+
+A normal paragraph.
+
+ A paragraph offset by at least one space becomes a literal paragraph.
+ All lines in a literal paragraph must be adjacent.
+
+ A literal paragraph is displayed as preformatted text.
+ The text is shown in a fixed-width font.
+ Spaces and newlines,
+ like the ones in this sentence,
+ are preserved.
+
+Another normal paragraph.
+
+'''
+
+== Admonitions
+
+NOTE: An admonition paragraph draws the reader's attention to
+auxiliary information.
+Its purpose is determined by the label
+at the beginning of the paragraph.
+
+Here are the other built-in admonition types:
+
+TIP: Pro tip...
+
+IMPORTANT: Don't forget...
+
+WARNING: Watch out for...
+
+CAUTION: Ensure that...
+
+'''
+
+== Lead Paragraph
+
+[.lead]
+This text will be styled as a lead paragraph (i.e., larger font).
+
+== Formatted Text
+bold *constrained* & **un**constrained
+
+italic _constrained_ & __un__constrained
+
+bold italic *_constrained_* & **__un__**constrained
+
+monospace `constrained` & ``un``constrained
+
+monospace bold `*constrained*` & ``**un**``constrained
+
+monospace italic `_constrained_` & ``__un__``constrained
+
+monospace bold italic `*_constrained_*` & ``**__un__**``constrained
+
+=== Monospace vs codespan
+`{cpp}` is valid syntax in the programming language by the same name.
+
+`+WHERE id <= 20 AND value = "{name}"+` is a SQL WHERE clause.
+
+=== Marks and Custom Styling
+Werewolves are allergic to #cassia cinnamon#.
+
+Did the werewolves read the [.small]#small print#?
+
+Where did all the [.underline]#cores# run off to?
+
+We need [.line-through]#ten# make that twenty VMs.
+
+[.big]##O##nce upon an infinite loop.
+
+
+=== Superscript and Subscript
+
+^super^script phrase
+
+~sub~script phrase
+
+'''
+
+== Headings
+
+== Level 1 Section Title
+
+=== Level 2 Section Title
+
+==== Level 3 Section Title
+
+===== Level 4 Section Title
+
+====== Level 5 Section Title
+
+[#custom-header-id]
+== Another Level 1 Section Title
+
+'''
+
+== Breaks
+
+=== Hard line break
+Rubies are red, +
+Topazes are blue.
+
+[%hardbreaks]
+Ruby is red.
+Java is black.
+
+=== Horizontal line 
+before
+
+'''
+
+after
+
+'''
+
+== Lists
+=== Unordered, basic
+* Edgar Allen Poe
+* Sheri S. Tepper
+* Bill Bryson
+
+=== Unordered, basic (alt)
+- Edgar Allen Poe
+- Sheri S. Tepper
+- Bill Bryson
+
+=== Unordered, max nesting
+* level 1
+** level 2
+*** level 3
+**** level 4
+***** level 5
+* level 1
+
+=== Ordered, basic
+. Step 1
+. Step 2
+. Step 3
+
+=== Ordered, nested
+. Step 1
+. Step 2
+.. Step 2a
+.. Step 2b
+. Step 3
+
+=== Ordered, max nesting
+. level 1
+.. level 2
+... level 3
+.... level 4
+..... level 5
+. level 1
+
+=== Checklist
+* [*] checked
+* [x] also checked
+* [ ] not checked
+*     normal list item
+
+=== Description, sinle-line
+first term:: definition of first term
+second term:: definition of second term
+
+=== Description, multi-line
+first term::
+definition of first term
+second term::
+definition of second term
+
+=== Q&A
+[qanda]
+What is Asciidoctor?::
+  An implementation of the AsciiDoc processor in Ruby.
+What is the answer to the Ultimate Question?:: 42
+
+=== Complex content in outline lists
+* Every list item has at least one paragraph of content,
+  which may be wrapped, even using a hanging indent.
++
+Additional paragraphs or blocks are adjoined by putting
+a list continuation on a line adjacent to both blocks.
++
+list continuation:: a plus sign (`{plus}`) on a line by itself
+
+* A literal paragraph does not require a list continuation.
+
+ $ gem install asciidoctor
+
+* AsciiDoc lists may contain any complex content.
++
+[cols="2", options="header"]
+|===
+|Application
+|Language
+
+|AsciiDoc
+|Python
+
+|Asciidoctor
+|Ruby
+|===
+
+'''
+
+== Links
+=== External
+https://asciidoctor.org - automatic!
+
+https://asciidoctor.org[Asciidoctor]
+
+https://github.com/asciidoctor[Asciidoctor @ *GitHub*]
+
+=== Relative
+link:document.pdf[Docs]
+
+=== Inline anchors
+[[bookmark-a]]Inline anchors make arbitrary content referenceable.
+
+[#bookmark-b]#Inline anchors can be applied to a phrase like this one.#
+
+anchor:bookmark-c[]Use a cross reference to link to this location.
+
+[[bookmark-d,last paragraph]]The xreflabel attribute will be used as link text in the cross-reference link.
+
+=== Internal cross references
+See <<bookmark-a>> to learn how to write paragraphs.
+
+Learn how to organize the document into <<bookmark-b,Bookmark B>>.
+
+'''
+
+== Images
+image::sunset.jpg[Sunset,align=center, title="Some text", caption="My image: "]
+
+.A mountain sunset
+[#img-sunset]
+[caption="Figure 1: ",link=https://www.flickr.com/photos/javh/5448336655]
+image::sunset.jpg[Sunset,300,200]
+
+=== Inline image
+image:sunset.jpg[Sunset,300, align=center, title="Some text"]
+
+'''
+
+== Source Code
+=== Inline
+Reference code like `types` or `methods` inline.
+
+Do not pass arbitrary ``Object``s to methods that accept ``String``s!
+
+=== Literal block
+....
+error: The requested operation returned error: 1954 Forbidden search for defensive operations manual
+absolutely fatal: operation initiation lost in the dodecahedron of doom
+would you like to die again? y/n
+....
+
+=== Listing block with title, no syntax highlighting
+.Gemfile.lock
+----
+GEM
+  remote: https://rubygems.org/
+  specs:
+    asciidoctor (1.5.6.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  asciidoctor (~> 1.5.6.1)
+----
+
+=== Code block with title and syntax highlighting
+.app.rb
+[source,c++]
+----
+#include <iostream>
+
+using namespace std; // opcjonalne
+
+int main()
+{
+    int n = 5;
+    Klasa k();
+    cout << "Hello world! " << n << endl;
+    return 0;
+}
+----
+
+=== Code block with callouts
+[source,ruby]
+----
+require 'sinatra' // <1>
+
+get '/hi' do // <2>
+  "Hello World!" // <3>
+end
+----
+<1> Library import
+<2> URL mapping
+<3> HTTP response body
+
+=== Code block with non-selectable callouts
+----
+line of code  // <1>
+line of code  # <2>
+line of code  ;; <3>
+line of code  <!--4-->
+----
+<1> A callout behind a line comment for C-style languages.
+<2> A callout behind a line comment for Ruby, Python, Perl, etc.
+<3> A callout behind a line comment for Clojure.
+<4> A callout behind a line comment for XML or SGML languages like HTML.
+
+=== Code block without delimiters (no blank lines)
+[source,xml]
+<meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+
+This is normal content.
+
+'''
+
+== More Delimited Blocks
+=== Example
+
+.Sample document
+====
+Here's a sample AsciiDoc document:
+
+[listing]
+....
+= Title of Document
+Doc Writer
+:toc:
+
+This guide provides...
+.... 
+// UWAGA: wyżej po .... musi być spacja, aby VS dobrze kolorował składnię.
+
+The document header is useful, but not required.
+====
+
+=== Admonition
+[NOTE]
+====
+An admonition block may contain complex content.
+
+.A list
+- one
+- two
+- three
+
+Another paragraph.
+====
+
+=== Blockquote
+[quote, Abraham Lincoln, Address delivered at the dedication of the Cemetery at Gettysburg]
+____
+Four score and seven years ago our fathers brought forth
+on this continent a new nation...
+____
+
+[quote, Albert Einstein]
+A person who never made a mistake never tried anything new.
+
+____
+A person who never made a mistake never tried anything new.
+____
+
+[quote, Charles Lutwidge Dodgson, 'Mathematician and author, also known as https://en.wikipedia.org/wiki/Lewis_Carroll[Lewis Carroll]']
+____
+If you don't know where you are going, any road will get you there.
+____
+
+=== Abbreviated blockquote (Asciidoctor only)
+"I hold it that a little rebellion now and then is a good thing,
+and as necessary in the political world as storms in the physical."
+-- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+
+'''
+
+== Table
+=== Table with a title, three columns, a header, and two rows of content
+.Table Title
+|===
+|Name of Column 1 |Name of Column 2 |Name of Column 3 
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+=== Another Table
+[cols="1,1,2", options="header"] 
+.Applications
+|===
+|Name
+|Category
+|Description
+
+|Firefox
+|Browser
+|Mozilla Firefox is an open-source web browser.
+It's designed for standards compliance,
+performance, portability.
+
+|Arquillian
+|Testing
+|An innovative and highly extensible testing platform.
+Empowers developers to easily create real, automated tests.
+|===
+
+=== Table with formatted, aligned and merged cells
+[cols="e,m,^,>s", width="25%"]
+|===
+|1 >s|2 |3 |4
+^|5 2.2+^.^|6 .3+<.>m|7
+^|8
+|9 2+>|10
+|===
+
+'''
+
+== Footnote
+A statement.footnote:[Clarification about this statement.]
+
+A bold statement!footnote:disclaimer[Opinions are my own.]
+
+Another bold statement.footnote:disclaimer[]
+
+'''
+
+== Bibliografia
+_The Pragmatic Programmer_ <<pp>> should be required reading for all developers.
+To learn all about design patterns, refer to the book by the "`Gang of Four`" <<gof>>.
+
+[bibliography]
+== References
+
+- [[[pp]]] Andy Hunt & Dave Thomas. The Pragmatic Programmer:
+  From Journeyman to Master. Addison-Wesley. 1999.
+- [[[gof,2]]] Erich Gamma, Richard Helm, Ralph Johnson & John Vlissides. Design Patterns:
+  Elements of Reusable Object-Oriented Software. Addison-Wesley. 1994.
+
 
 Quisque latexmath:[C = \alpha + \beta Y^{\gamma} + \epsilon] rutrum tincidunt ipsum vulputate tincidunt. Nulla posuere porttitor ligula, vitae vehicula felis condimentum vel. Mauris eu pellentesque eros. Nullam fermentum fermentum pellentesque. Maecenas in felis [.small]#tortor#.
 
+Wstawka matematyczna **LaTeX**
 [latexmath]
 ++++
 \sum_{n=1}^{\infty} 2^{-n} = 1
 ++++
-
-Ala ma kota
-
-.Optional Title
-[NOTE]
-This is an example
-single-paragraph note.
 
 Nam nec ligula tempus, fringilla leo quis, pellentesque justo. latexmath:[\sum_{n=1}^{\infty} 2^{-n} = 1] Aenean semper augue in sem tempus gravida. Integer efficitur ut erat eu dignissim. Etiam vitae turpis iaculis, accumsan leo quis, scelerisque turpis. Suspendisse laoreet velit et tempor dapibus. Aenean hendrerit elementum elit vel pellentesque. Aliquam condimentum dictum massa, ac fringilla enim feugiat id. Maecenas varius ultricies auctor. Nam gravida molestie metus. Morbi fermentum fringilla ipsum, vel faucibus orci luctus eu. Nam ornare nec risus porta malesuada.
 
@@ -35,18 +488,7 @@ sum_(i=1)^n i^3=((n(n+1))/2)^2 + (1+2)
 == Nagłówek dla sekcji
 In finibus aliquet sem quis pulvinar. Vivamus at ante vel diam ullamcorper commodo. Vivamus sagittis, leo et ullamcorper auctor, sapien enim tincidunt dui, ut porta enim turpis et sem. Aenean tincidunt ligula sit amet urna viverra posuere. Sed molestie, metus in tempus semper, libero arcu semper enim, quis suscipit nunc ex vel tellus. Donec consectetur, nisi eu euismod ultricies, odio nisi lacinia ipsum, a luctus urna nisi et quam. Vestibulum malesuada ante tellus, eu vestibulum ipsum luctus et. Cras eleifend sed magna vitae ullamcorper. Phasellus in nisi et lorem porttitor malesuada a sit amet dolor. 
 
-* [*] checked
-* [x] also checked
-* [ ] not checked
-*     normal list item
-
 Praesent ligula ante, condimentum ac viverra eu, posuere eget massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis vehicula sit amet sem sit amet congue. Nunc varius, dolor et fringilla ultrices, enim neque tincidunt mauris, non molestie nibh augue porta diam. Mauris fermentum at nibh sed ultricies. Ut laoreet nunc vel turpis tincidunt, ultrices finibus diam euismod.
-
-// Asciidoctor użyje surowego tekstu wewnątrz bloku (++++).
-// A więc <strong> zostanie zinterpretowany przez przeglądarkę.
-++++
-Jakiś tam <strong>sobie</strong> tekst.
-++++
 
 Nullam vitae libero tempus, sodales justo vitae, tincidunt lorem. In vitae interdum est. Etiam finibus nunc nec dui luctus volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum auctor, orci id commodo mattis, lectus dui convallis massa, vitae facilisis lacus nulla sed velit. Mauris laoreet odio eu enim tincidunt, sit amet dapibus elit ornare. Cras luctus porttitor ex nec eleifend. Morbi ut orci id metus ultrices pretium at vitae magna. Duis finibus sagittis sapien id finibus. Maecenas quis interdum ante.
 

@@ -2,6 +2,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap');
 
+@font-face {
+    font-family: 'Droid Sans Mono';
+    src: url('fonts/DroidSansMono.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 *, *:before, *:after {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -15,10 +22,6 @@ html, body {
 
 a {
     text-decoration: none;
-}
-
-img {
-    width: 100%;
 }
 
 main {
@@ -67,6 +70,9 @@ article a:hover {
 
 .post-card {
     border: 1px solid transparent;
+}
+.post-card img {
+    width: 100%;
 }
 .post-card p {
     margin: 0;
@@ -204,6 +210,9 @@ a > .category-card:hover {
 }
 
 @media (max-width: 600px) {
+    img {
+        width: 100%;
+    }
     #navigation.sticky {
         top: 0 !important;
     }

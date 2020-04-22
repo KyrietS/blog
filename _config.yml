@@ -70,9 +70,10 @@ asciidoc: {}
 asciidoctor:
   base_dir: :docdir
   safe: unsafe
-  attributes:
-    - imagesdir=/assets/posts/media/
+  attributes:                             # '@' umożliwia nadpisanie opcji w front matter
+    - imagesdir=/assets/posts/media/      # źródło obrazów, filmów i innych assetów
     - idseparator=_
     - source-highlighter=rouge
-    - icons=font
+    - icons=font@
     - sectanchors
+    - prewrap!@
