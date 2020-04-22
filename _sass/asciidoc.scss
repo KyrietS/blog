@@ -56,9 +56,16 @@ p {
     margin: 0.625em 0;
 }
 
+#preamble p,
 .paragraph.lead > p {
     font-size: 1.21875em;
     line-height: 1.6;
+}
+
+#preamble p:after {
+    content: '';
+    display: block;
+    clear: both;
 }
 
 mark {

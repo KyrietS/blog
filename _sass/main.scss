@@ -41,6 +41,11 @@ article > header > p {
 article a:hover {
     text-decoration: underline;
 }
+article:after {
+    content: '';
+    display: block;
+    clear: both;
+}
 
 #page-header {
     border-bottom: 1px solid lightgray;
