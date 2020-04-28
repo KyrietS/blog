@@ -9,14 +9,14 @@
 - title: Żółw 3D
   description: "Żółw znany z programu Logo, lecz tym razem w 3D. Wykorzystano czysty JavaScript i Canvas."
   image: turtle3d.jpg
-  github: github.com/kyriets/turtle3d
+  github: github.com/KyrietS/turtle3d
   run: https://kyriets.github.io/turtle3d/
 
 - title: Puzzle
   description: "Układanka, w której obrazek jest podzielony na części. Mamy ułożyć go z powrotem."
   image: puzzle.jpg
-  github: github.com/kyriets.github.io/www
-  run: https://kyriets.github.io/www/puzzle/
+  github: github.com/KyrietS/puzzle
+  run: https://kyriets.github.io/puzzle/
 
 - title: The Damn Compiler
   description: "Kompilator języka imperatywnego, który kompiluje kod do abstrakcyjnego assemblera."
@@ -26,35 +26,35 @@
 - title: Zrozumieć Wektory*
   description: "Gra logiczno-zręcznościowa, w której gracz bawi się wektorami i obserwuje, jak wpływają one na zachowanie piłeczki."
   image: zrozumiec-wektory.jpg
-  github: github.com/kyriets/ZrozumiecWektory
+  github: github.com/KyrietS/ZrozumiecWektory
 
 - title: Trylma*
   description: "Sieciowa gra planszowa, w której może jednocześnie brać udział do 6 graczy z botami."
   image: trylma.jpg
-  github: github.com/kyriets/Trylma
+  github: github.com/KyrietS/Trylma
 
 - title: Arithmetic Coder
   description: "Wydajna implementacja algorytmu kompresjii kodowania arytmetycznego w C++."
   image: arithmetic-coder.png
-  github: github.com/kyriets/arithmetic-coding
+  github: github.com/KyrietS/arithmetic-coding
 
 - title: pngsafe
   description: "Aplikacja ukrywająca plik w obrazie steganograficzną metodą modyfikacji najmniej znaczącego bitu."
   image: pngsafe.png
-  github: github.com/kyriets/pngsafe
+  github: github.com/KyrietS/pngsafe
 
 - title: EtherSim
   description: "Sandboxowy edytor topologii sieci komputerowej, w którym można symulować kolizje na łączu"
   image: ethersim.png
-  github: github.com/kyriets/EtherSim
+  github: github.com/KyrietS/EtherSim
 
 - title: Crypter
   description: "Konsolowa aplikacja do szyfrowania plików podanym przez użytkownika hasłem."
   image: crypter.jpg
-  github: github.com/kyriets/crypter
+  github: github.com/KyrietS/crypter
 
 - title: Plotter3D
   description: "Aplikacja webowa do rysowania wykresów 3D funkcji dwóch zmiennych."
   image: plotter3d.png
-  github: github.com/kyriets/plotter3d
-  run: https://kyriets.github.io/grafika/lista3/zad3/
+  github: github.com/KyrietS/plotter3d
+  run: https://kyriets.github.io/plotter3d/

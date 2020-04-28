@@ -1,10 +1,14 @@
 ---
 layout: default
-title: Kontakt
+title: Moje projekty
 permalink: /projekty/
 ---
 
 <style>
+.projects-container {
+    margin: 0 auto;
+    max-width: 1200px;
+}
 .projects {
     display: flex;
     flex-wrap: wrap;
@@ -13,17 +17,18 @@ permalink: /projekty/
 }
 .project {
     margin: 15px;
-    width: 270px;
+    width: 350px;
 }
 .project img {
     width: 100%;
     border: 1px solid #333;
 }
 .project-title {
+    font-size: 20px;
     margin-bottom: 0;
 }
 .project-description {
-    font-size: 15px;
+    font-size: 16px;
 }
 .github-link {
     margin-top: 0;
@@ -42,13 +47,16 @@ permalink: /projekty/
 
     /* Ekran mniejszy niż 600px */
 @media (max-width: 600px) {
+    .projects-container {
+        margin: 0 0;
+    }
     .project {
         width: 100%;
     }
 }
 </style>
 
-<div class="w3-padding-large w3-content">
+<div class="w3-padding-large projects-container">
 
     <div class="w3-center section-header">
         <h2 class="w3-xxxlarge">Kilka moich projektów</h2>
