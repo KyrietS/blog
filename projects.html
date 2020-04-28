@@ -1,0 +1,86 @@
+---
+layout: default
+title: Kontakt
+permalink: /projekty/
+---
+
+<style>
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 -10px;
+}
+.project {
+    margin: 15px;
+    width: 270px;
+}
+.project img {
+    width: 100%;
+    border: 1px solid #333;
+}
+.project-title {
+    margin-bottom: 0;
+}
+.project-description {
+    font-size: 15px;
+}
+.github-link {
+    margin-top: 0;
+    font-size: 12px;
+    color: #2156a5;
+}
+.github-link:hover {
+    text-decoration: underline;
+}
+.run-link {
+    color: #2156a5;
+}
+.run-link:hover {
+    text-decoration: underline;
+}
+
+    /* Ekran mniejszy niż 600px */
+@media (max-width: 600px) {
+    .project {
+        width: 100%;
+    }
+}
+</style>
+
+<div class="w3-padding-large w3-content">
+
+    <div class="w3-center section-header">
+        <h2 class="w3-xxxlarge">Kilka moich projektów</h2>
+        <hr>
+    </div>
+
+
+    <div class="projects">
+
+        {% for project in site.data.projects %}
+        <div class="w3-card project">
+            <a href="https://{{project.github}}" target="_blank">
+                <img src="/assets/img/projects/{{project.image}}" alt="Project thumbnail" class="w3-hover-opacity">
+            </a>
+            <div class="w3-container w3-white">
+                <p class="project-title"><b>{{ project.title }}</b></p>
+                <p class="github-link"><a href="https://{{project.github}}" target="_blank">{{ project.github }}</a></p>
+                <p class="project-description">{{ project.description }}</p>
+                
+                {% if project.run %}
+                <div class="w3-center">
+                    <a href="{{ project.run }}" target="_blank"><p class="run-link">Uruchom w przeglądarce</p></a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <p class="w3-small">* projekty realizowane w zespole</p>
+
+    <hr>
+
+    {% include contact-section.html %}
+
+</div>
