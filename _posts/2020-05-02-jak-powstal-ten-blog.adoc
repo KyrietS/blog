@@ -1,0 +1,74 @@
+# Jak powstał ten blog
+:page-categories: [Webówka]
+:page-thumbnail: blog-logo.png
+
+W tym wpisie opowiem o powstaniu tej strony. Postaram się tutaj zawrzeć wszystkie technologie, które zostały użyte, aby osiągnąć obecny stan tego bloga. Blog jest zbiorem statycznych plików HTML tworzonych przez bardzo popularny generator Jekyll. Dodawanie wpisów i odświeżanie samej strony jest w pełni zautomatyzowane i zintegrowane z repozytorium na Githubie.
+
+## Obsługa bloga
+To jest statyczny blog złożony ze statycznych plików HTML, które zostały wygenerowane raz i wrzucone na serwer. Teraz są dostępne one możliwe do wyświetlenia w przeglądarce. Strona ta nie posiada backendu, to znaczy, że żaden panelu administracyjny nie jest dostępny z poziomu przeglądarki. Przynajmniej nie bezpośrednio. Nie oznacza to wcale, że obsługa strony i dodawanie nowych wpisów jest utrudnione. Wręcz przeciwnie! Nowe treści do strony można pisać z dowolnego miejsca, na dowolnym urządzeniu, bo są to zwykłe pliki tekstowe w formacie Markdown lub Asciidoc.
+
+## Dodawanie wpisów
+Wpisy na stronę sporządzam w formie plików https://pl.wikipedia.org/wiki/Markdown[Markdown] lub https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[Asciidoc]. Zdecydowanie preferuję ten drugi z uwagi na mnogość wizualnych bajerów, które można przy jego pomcoy uzyskać. Jeśli chcesz zobaczyć krótki pokaz możliwości Asciidoc'a na tej stronie, zerknij link:/wpis/asciidoc-demo/[tutaj].
+
+## Generowanie statycznej strony
+Po zapisaniu nowego pliku muszę go oczywiście zamienić na statyczny plik HTML. Dokładnie ten, który właśnie oglądasz. Tym zajmuje się Jekyll. Pisząc kolejne zdania tego wpisu widzę na żywo podgląd jak on wygląda na stronie. Kompilacja wykonuje się automatycznie przy każdorazowym zapisaniu pliku. Aby ktoś mógł zobaczyć naszą stronę, to trzeba ją gdzieś hostować. Tutaj z pomocą przychodzi GitHub.
+
+## Hostowanie strony
+Pierwsza opcja, to założenie specjalnego repozytorium na GitHubie i wrzucenie tam plików projektu Jekylla. GitHub jest na tyle inteligentny, że sam zbuduje naszą stronę i zacznie ją hostować pod określonym adresem.
+
+Budowanie strony na GitHubie można przeprowadzić na dwa sposoby. Pierwszy to zwyczajne wrzucenie plików Jekyll'a wraz ze wpisami do repozytorium i poczekanie aż strona zostanie automatycznie zbudowana i zacznie być hostowana. Takie rozwiązanie jest najprostsze i pozwala postawić najprostszą stronę w zaledwie kilka minut. Niestety ma też swoje ograniczenia, m.in. nie skorzystamy z wielu wtyczek do Jekylla. 
+
+Innym podejściem jest zbudowanie strony przy użyciu _continuous integration_, np. Travis CI lub Github Actions. Jest to proces dający nieograniczone możliwości. Na tym blogu przetestowałem obie usługi i ostatecznie pozostałem przy Github Actions. 
+
+Procesy konfigurowania automatycznego budowania strony omówię w osobnym wpisie. Jeśli się taki pojawi, to zostanie tutaj podlinkowany. 
+
+## Szablon strony
+Aby blog wyglądał zachęcająco trzeba przygotować jakiś layout lub użyć gotowego znalezionego w https://jekyllthemes.io/free[Internecie]. Szablon do tej strony stworzyłem od zupełnych podstaw. Nie trzeba wiedzieć nic więcej poza HTML'em, CSS'em. JavaScript też się przyda niekiedy. Tak czy inaczej nie jest to trudne, a efekt końcowy, który uzyskamy zależy tylko od naszej własnej wizji. Do tworzenia swojego szablonu należy poznać https://jekyllrb.com/docs/liquid/[Liquid]. Jest to tzw. template language, który służy do tworzenia wstawek w HTML'u.
+
+Fragment szablonu z mojego bloga, który generuje listę "Zobacz jeszcze" możesz zobaczyć poniżej. Te klamerki z procentami oznaczają właśnie wstawki Liquida.
+[source, liquid]
+----
+<h2>Zobacz jeszcze</h2>
+<ul>
+    {% for post in site.related_posts limit:5 %}
+    {% if post.url != page.url %}
+    <li><a href="{{post.url}}">{{post.title}}</a></li>
+    {% endif %}
+    {% endfor %}
+</ul>
+----
+
+## Podsumowanie
+To wszystko z kwestii technicznych, co trzeba wiedzieć, aby taką stronę stworzyć od zupełnych podstaw i wygodnie nią zarządzać. Wymieńmy to raz jeszcze w skondensowanej formie.
+
+* HTML, CSS, JavaScript
+* Markdown / Asciidoc
+* Jekyll
+* Liquid
+* GitHub Pages
+* GitHub Actions / Travis CI / ...
+
+Jekyll sam w sobie jest napisany w języku Ruby. Podobnie jak wszystkie wtyczki do niego, których ten blog używa już kilka. Umyślnie jednak nie wymieniłem na tej liście języka Ruby, ponieważ towrząc swoją stronę nie trzeba nawet wiedzieć o jego istnieniu. Szczerze mówiąc, to ja chyba na oczy nie widziałem nawet jednej linijki tego języka podczas przygody z Jekyll'em, co zaliczam na plus.
+
+Oczywiście w późniejszym czasie okaże się, że dojdzie jeszcze trochę nowej wiedzy do opanowania, np. składnia YAML (to taki JSON bez klamerek), ale jest to na tyle proste, że można uczciwie pominąć fakt opanowania tego.
+
+W kolejnym wpisie omówię dokładniej strukturę projektu Jekylla, który buduje tę stronę. Wspomnę o integracji Jekylla z Asciidoc'em, kolorowaniu kodu źródłowego we wpisach oraz wstawek latexmath:[\LaTeX]'a. Wymienię też kilka ciekawych wtyczek.
+
+////
+## Nowa strona w Jekyll
+
+## Integracja z Asciidoc
+
+## Przygotowanie szablonu
+
+[#publikowanie-strony]
+## Publikowanie strony na GitHub Pages
+
+[#github-actions]
+## Automatyzacja budowania strony przy użyciu Github Actions
+
+[#travis-ci]
+## Automatyzacja budowania strony przy użyciu Travis CI
+
+## Dalsza rozbudowa
+////
