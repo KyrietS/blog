@@ -1,0 +1,50 @@
+# Processing do nauki programowania
+:page-categories: [Programowanie, Processing]
+:page-thumbnail: processing-logo.png
+
+Zapraszam do serii wpisów poświęconych Processingowi. Jeśli chcesz zacząć tworzyć aplikacje wyświetlające grafikę w oknie, to świetnie trafiłeś. Processing został stworzony właśnie po to, aby maksymalnie ułatwić to zadanie.
+
+## Co to jest Processing
+Processing jest to język programowania, zbiór https://pl.wikipedia.org/wiki/Biblioteka_programistyczna[bibliotek] Javy oraz środowisko programistyczne (https://pl.wikipedia.org/wiki/Zintegrowane_%C5%9Brodowisko_programistyczne[IDE]). Pod tą jedną nazwą kryją się wszystkie te pojęcia, dlatego czasami trzeba zwracać uwagę na to, w jakim kontekście zostało użyte słowo Processing.
+
+Język programowania Processing jest nadzbiorem Javy (z kilkoma modyfikacjami). Oznacza to, że składnia składnia tych dwóch języków jest niemal identyczna oraz możemy wykorzystywać wszystkie biblioteki Javy w naszych aplikacjach. Processing przy budowaniu aplikacji kompilowany jest do Javy, następnie wygenerowany kod źródłowy jest kompilowany kompilatorem Javy do postaci binarnej, która jest uruchamiana na maszynie wirtualnej Javy (https://pl.wikipedia.org/wiki/Wirtualna_maszyna_Javy[JVM]). Oznacza to, że do uruchomienia naszej aplikacji wymagane jest posiadanie Javy na komputerze.
+
+Środowisko Processing pozwala na wyeksportowanie aplikacji wraz ze wszystkimi niezbędnymi bibliotekami z dołączeniem pliku wykonywalnego *.exe.
+
+Dopóki nie zobaczysz Processinga w akcji, nie zrozumiesz całkowicie powyższej definicji. Kilka akapitów niżej znajdziesz wybrane przeze mnie przykłady zastosowania Processinga.
+
+## Odmiana słowa "Processing"
+Słowo Processing będzie się często pojawiać we wpisach z tej kategorii. Zadecydowałem, że będę odmieniał "Processing" w sposób naturalny. Dokładnie tak, jakbym to słowo wypowiadał w rozmowie z kimś.
+
+Wszystkie wpisy będę chciał utrzymać w polskim tonie. Chyba, że polskie słowo utrudni zrozumienie jakiegoś pojęcia.
+
+## Zastosowania Processing
+Zanim porozmawiamy głębiej o Processingu, wymienię kilka zastosowań tej technologii.
+
+### Generowanie figur, grafów, fraktali z matematycznych formuł
+Jeśli masz ciekawy problem matematyczny, który chciałbyś zwizualizować, możesz to bezproblemowo zaprogramować w Processingu. O stworzenie okna, w którym zostanie wyświetlona twoja aplikacja zadba biblioteka. Możesz skupić się na programowaniu grafiki.
+
+image::processing-fractal.jpg[Fraktal,align=center, title="Fraktal"]
+image::processing-spirala.jpg[Spirala,align=center, title="Spirala"]
+
+### Proste gry komputerowe
+Może masz ochotę napisać jakąś prostą grę komputerową? Processing posiada niezbędne funkcje do obsługi klawiatury, myszy, a nawet sieci. Po zapoznaniu się z tą biblioteką będzie cię ograniczać jedynie twoja wyobraźnia… No i wydajność. Ponieważ Processing jest kompilowany do Javy, gry w nim napisane nie mogą się równać takim napisanym w niskopoziomowych bibliotekach typu OpenGL z akceleracją karty graficznej.
+
+image::processing-game-of-life.jpg[Gra w życie,align=center, title="Gra w życie"]
+image::processing-rzeki.jpg[Rzeki, 400, 400, align=center, title="Zrozumieć Wektory"]
+
+### Proste symulacje fizyczne
+Jeśli chcesz, możesz zaprogramować fizykę na swój sposób. Możesz również użyć gotowych bibliotek do symulacji fizyki, np. https://box2d.org/[Box2D].
+
+image::processing-fizyka.jpg[Processing fizyka, align=center, title="Tomek i kulki"]
+
+### Inne środowiska
+Processing posiada porty do języków Python oraz JavaScript. Ten drugi pozwala na uruchamianie aplikacji w przeglądarce. Możliwe jest również stworzenie aplikacji, która zostanie uruchomiona na telefonie z Androidem albo RaspberryPi.
+
+Na pewno pojawią się wpisy poświęcone tym wersjom Processinga.
+
+## Processing dla początkujących
+Czy Processing wymaga dobrej znajomości programowania? Nie. Próg wejścia jest bardzo łagodny. Prawdę mówiąc, jest to świetny język do rozpoczęcia nauki programowania w ogóle! Gdy uczniom po raz pierwszy pokazuje się czym jest programowanie, to najczęściej widzą to w formie smutnej, czarnej konsoli, która wyświetla rezultat ich pracy na ekranie. Przy pracy z grafiką satysfakcja jest wielokrotnie wyższa, bo widzimy w kolorach to, co tworzymy. *Rozwiązujemy praktyczne problemy*.
+
+## Podsumowanie
+To było bardzo pobieżne omówienie możliwości Processinga. W następnych wpisach zajmiemy się tworzeniem prostych aplikacji. Małymi krokami, na przykładach będziemy zapoznawać się z kolejnymi funkcjami tej potężnej biblioteki.
