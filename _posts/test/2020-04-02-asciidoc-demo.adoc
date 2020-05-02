@@ -1,5 +1,4 @@
 = Pokaz możliwości Asciidoc'a na tej stronie
-:page-categories: [Programowanie, Życie na studiach]
 :page-thumbnail: student.png
 :stem: asciimath
 :page-hidden: true
