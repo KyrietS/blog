@@ -72,7 +72,7 @@ asciidoctor:
   safe: unsafe
   attributes:                             # '@' umożliwia nadpisanie opcji w front matter
     - imagesdir=/assets/posts/media/      # źródło obrazów, filmów i innych assetów
-    - idseparator=_
+    - idseparator=-
     - source-highlighter=rouge
     - icons=font@
     - sectanchors
