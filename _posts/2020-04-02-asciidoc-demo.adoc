@@ -1,7 +1,8 @@
-= Tytuł drugiego wpisu
+= Pokaz możliwości Asciidoc'a na tej stronie
 :page-categories: [Programowanie, Życie na studiach]
 :page-thumbnail: student.png
 :stem: asciimath
+:page-hidden: true
 
 Lorem ipsum #dolor sit amet#, consectetur adipiscing elit. stem:[sqrt(4) = 2] Nulla tincidunt accumsan dui at fermentum. Praesent ac lorem id ex rhoncus varius. Donec fringilla arcu quis mi dictum congue. Aliquam eleifend, "`double curved quotes`" justo in scelerisque sodales, turpis tellus tempus felis, eget accumsan odio justo eget massa. Nulla sed dapibus purus. 
 
