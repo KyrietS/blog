@@ -1,12 +1,19 @@
 /* Podstawowy arkusz stylów */
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap');
 
 @font-face {
     font-family: 'Droid Sans Mono';
     src: url('fonts/DroidSansMono.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
+
+::selection {
+    background: #04A4CC;
+    color: #FFF;
+    text-shadow: none;
 }
 
 *, *:before, *:after {
@@ -23,11 +30,14 @@ html, body {
 a {
     text-decoration: none;
 }
+main a:hover {
+    text-decoration: underline;
+}
 
 main {
     margin-top: 40px;
 }
-article {
+article p{
     font-size: 18px;
     line-height: 1.65em;
     word-spacing: 3px;
@@ -156,7 +166,7 @@ a > .category-card:hover {
     }
 
     #thumbnail {
-        max-width: 300px;
+        max-width: 250px;
         margin-right: 15px;
         margin-bottom: 15px;
     }
