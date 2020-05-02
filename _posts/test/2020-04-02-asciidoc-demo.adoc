@@ -415,7 +415,7 @@ and as necessary in the political world as storms in the physical."
 |===
 
 === Another Table
-[cols="1,1,2", options="header"] 
+[cols="1,1,2", options="header"]
 .Applications
 |===
 |Name
@@ -436,6 +436,16 @@ Empowers developers to easily create real, automated tests.
 
 === Table with formatted, aligned and merged cells
 [cols="e,m,^,>s", width="25%"]
+|===
+|1 >s|2 |3 |4
+^|5 2.2+^.^|6 .3+<.>m|7
+^|8
+|9 2+>|10
+|===
+
+=== Table with autowidth
+[cols="e,m,^,>s"]
+[%autowidth]
 |===
 |1 >s|2 |3 |4
 ^|5 2.2+^.^|6 .3+<.>m|7
