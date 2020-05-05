@@ -36,7 +36,7 @@ image::processing-rzeki.jpg[Rzeki, 400, 400, align=center, title="Zrozumieć Wek
 ### Proste symulacje fizyczne
 Jeśli chcesz, możesz zaprogramować fizykę na swój sposób. Możesz również użyć gotowych bibliotek do symulacji fizyki, np. https://box2d.org/[Box2D].
 
-image::processing-fizyka.jpg[Processing fizyka, align=center, title="Tomek i kulki"]
+image::processing-fizyka.jpg[Processing fizyka, align=center, title="Domek i kulki"]
 
 ### Inne środowiska
 Processing posiada porty do języków Python oraz JavaScript. Ten drugi pozwala na uruchamianie aplikacji w przeglądarce. Możliwe jest również stworzenie aplikacji, która zostanie uruchomiona na telefonie z Androidem albo RaspberryPi.

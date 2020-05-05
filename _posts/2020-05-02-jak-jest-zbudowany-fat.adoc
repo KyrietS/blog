@@ -22,10 +22,10 @@ Zacznijmy od pokazania jak taki system plików wygląda. Wszystkie czynności tu
 ### Utworzenie czystego systemu plików FAT
 Będziemy potrzebowali urządzenia do testów. Takiego, na którym będziemy mogli wykonywać normalne operacje na plikach (utwórz, kopiuj, usuń). Niezbędna jest również możliwość niskopoziomowego podglądu jak dane są zapisane na nośniku (bajt po bajcie).
 
-Na szczęście nie będziemy używać fizycznego urządzenia. Stworzymy plik, który następnie zamontujemy w systemie jako wirtualny "nośnik danych". Można sobie to zestawić z analogią do fizycznego pendrive'a. Plik to nasz pendrive, a montowanie pliku w systemie, to po prostu wpięcie pendriva do komputera (coś jak plik z formatem _*.iso_).
+Na szczęście nie będziemy używać fizycznego urządzenia. Stworzymy plik, który następnie zamontujemy w systemie jako wirtualny "nośnik danych". Można sobie to zestawić z analogią do fizycznego pendrive'a. Plik to nasz pendrive, a montowanie pliku w systemie, to po prostu wpięcie pendriva do komputera (coś jak plik z formatem _.iso_).
 
 Najpierw utwórzmy pusty plik o rozmiarze, powiedzmy 100kB. Rozmiar pliku w tym przypadku będzie oznaczał pojemność naszego wirtualnego urządzenia. +
-*Uwaga*: plikowi nie można tak po prostu nadać rozmiaru. Trzeba go czymś wypełnić. Tworzę więc plik o nazwie `{fat.img}` i wypełniam go bajtami o wartości zero (nie mylić z wypełnianiem pliku znakami cyfry '0').
+*Uwaga*: plikowi nie można tak po prostu nadać rozmiaru. Trzeba go czymś wypełnić. Tworzę więc plik o nazwie `fat.img` i wypełniam go bajtami o wartości zero (nie mylić z wypełnianiem pliku znakami cyfry '0').
 
 ----
 $ dd if=/dev/zero of=fat.img bs=1024 count=100
@@ -86,7 +86,7 @@ Otrzymaliśmy pusty system plików na naszym urządzeniu. Gdybyśmy przy tworzen
 
 ### Budowa Boot Sectora w FAT12
 
-Pierwsze 512 bajtów, a więc do offsetu `000001f0` zajmuje tzw. _Boot sector_*_ naszego urządzenia. Znajdują się tam szczegółowe informacje o używanym systemie plików na urządzeniu. Boot sector w FAT zawsze kończy się sekwencją `55 aa`.
+Pierwsze 512 bajtów, a więc do offsetu `000001f0` zajmuje tzw. _Boot sector_ naszego urządzenia. Znajdują się tam szczegółowe informacje o używanym systemie plików na urządzeniu. Boot sector w FAT zawsze kończy się sekwencją `55 aa`.
 
 Po pełny opis co oznacza który bajt w tym sektorze możesz odwiedzić https://www.win.tue.nl/~aeb/linux/fs/fat/fat-1.html#ss1.2[tę stronę].
 
@@ -135,7 +135,7 @@ $ od -Ad -tx1z fat.img
 0102400
 ----
 
-Bajty liczymy od zera, więc bajt numer 1 ma wartość `3c`, bajt numer `16 02` itd.
+Bajty liczymy od zera, więc bajt numer 1 ma wartość `3c`, a bajt numer 16 to `02` itd.
 
 Spróbuj samodzielnie odczytać wartości z Boot Sectora. Odpowiedzi zamieszczam w tabeli poniżej.
 
@@ -154,7 +154,7 @@ Spróbuj samodzielnie odczytać wartości z Boot Sectora. Odpowiedzi zamieszczam
 
 Mimo tego, że Boot Sector mamy przedstawiony w postaci ciągu bajtów zapisanych szesnastkowo, muszę rozróżniać tutaj wartość odczytaną (raw) od wartości liczbowej, którą reprezentuje ten zapis (hex). Wartość uzyskamy czytając bajty w odwrotnej kolejności. Jeśli nie rozumiesz dlaczego, przeczytaj o formie zapisu https://pl.wikipedia.org/wiki/Kolejno%C5%9B%C4%87_bajt%C3%B3w[Little Endian].
 
-Z opisów z tabel już się pewnie domyślasz jaki stosunek do siebie mają _bajty_, _sektory_ i |_klastry_.
+Z opisów z tabel już się pewnie domyślasz jaki stosunek do siebie mają _bajty_, _sektory_ i _klastry_.
 
 *Sektor* to zbiór *bajtów* o stałym rozmiarze.
 *Klaster* to zbiór *sektorów* o stałym rozmiarze.
@@ -166,7 +166,7 @@ Dokładnie od offsetu 512 zaczyna się pierwsza tablica alokacji FAT, która ko�
 ### Budowa tablicy alokacji FAT
 Tablica alokacji jest taką mapą po pamięci. Jeśli mamy jakiś duży plik, który zajmuje kilka sektorów, tablica alokacji powie nam które kolejne sektory powinniśmy odczytywać, aby otrzymać cały plik.
 
-W FAT12 jeden klaster jest kodowany na 12 bitach, a więc 3 bajtach. Powoduje to trochę komplikacji przy próbie ręcznego odczytywania wartości z postaci szesnastkowej, którą my mamy. Dla FAT16 i FAT32 jest to dużo prostsze.
+W FAT12 jeden klaster jest kodowany na 12 bitach, a więc jest to 1,5 bajta. Powoduje to trochę komplikacji przy próbie ręcznego odczytywania wartości z postaci szesnastkowej, którą my mamy. Dla FAT16 i FAT32 jest to dużo prostsze.
 
 Odczytajmy zawartość tablicy alokacji, bo widać, że już coś się tam w niej znajduje. Zaczynamy od offsetu 512. Algorytm jest następujący:
 
@@ -283,18 +283,6 @@ Dane pliku "hello" są zapisane na 32 bajtach (2 wiersze). Każdy bajt koduje pe
 
 | 28-31 | Rozmiar pliku w bajtach
 |===
-
-////
-| Nr bajtu | Opis |
-|----------|------|
-| 0-10 | Nazwa pliku (8), rozszerzenie (3) |
-| 11 | Atrybuty pliku |
-| 12-21 | _Reserved_ |
-| 22-23 | Czas |
-| 24-25 | Data |
-| 26-27 | Początkowy klaster (0 - pusty plik) |
-| 28-31 | Rozmiar pliku w bajtach |
-////
 
 Po więcej informacji zajrzyj https://www.win.tue.nl/~aeb/linux/fs/fat/fat-1.html#ss1.4[tutaj].
 
@@ -424,13 +412,14 @@ ff8 fff 000 fff 005 fff- wynik końcowy
 [0] [1] [2] [3] [4] [5]- numery klastrów
 ----
 
-Odczytujemy
-- Plik `duzy` zaczyna się od klastra [4].
-- Patrzymy, a klaster o tym numerze jest kodowany jako `005`. 
-- Oznacza to, że dalsza część pliku znajduje się w klastrze [5]. 
-- Patrzymy do klastra [5] i odczytujemy `fff`. Zatem jest to *ostatni klaster*.
+Odczytujemy:
 
-Teraz wystarczy przeczytać klastry w kolejności `[4][5]`. Klaster [4] zaczyna się od offsetu `005600` i rzeczywiście 2048 bajtów dalej, tam gdzie spodziewamy się klastra [5] odnajdujemy dalszą część pliku `bcdef`.
+* Plik `duzy` zaczyna się od klastra [4].
+* Patrzymy, a klaster o tym numerze jest kodowany jako `005`. 
+* Oznacza to, że dalsza część pliku znajduje się w klastrze [5]. 
+* Patrzymy do klastra [5] i odczytujemy `fff`. Zatem jest to *ostatni klaster*.
+
+Teraz wystarczy przeczytać klastry w kolejności `[4][5]`. Klaster `[4]` zaczyna się od offsetu `005600` i rzeczywiście 2048 bajtów dalej, tam gdzie spodziewamy się klastra `[5]` odnajdujemy dalszą część pliku `bcdef`.
 
 Myślę, że już _czujesz_ jak ten system działa. Oczywiście są to tylko proste operacje. Zachęcam do samodzielnego eksperymentowania. Jak system plików będzie zaśmiecony, to zawsze możesz utworzyć nowy. Spróbuj np. dopisać coś do któregoś z plików i sprawdź co się stanie 
 _(spoiler: stara wersja pliku sprzed zmiany zostanie zachowana w pamięci)_.
@@ -515,6 +504,7 @@ Plik i jego dane nadal znajdują się na dysku. Oczywiście może zostać w każ
 ### Odzyskiwanie krótkiego pliku
 
 Co należy zrobić, aby odzyskać ten plik? W przypadku pliku, który zajmuje tylko jeden klaster jest to proste. 
+
 * Odnajdujemy plik w _Root Directory Table_ (lub w folderze gdzie się znajdował)
 * Odczytujemy klaster od którego się rozpoczyna ten plik.
 * Jeśli klaster jest oznaczony jako zajęty, to już jest za późno. Dane zostały nadpisane przez inny plik.
