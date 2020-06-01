@@ -1,0 +1,97 @@
+# Programowanie kreatywne
+:page-categories: [Programowanie, Processing]
+:page-thumbnail: abstraction.png
+
+Programowanie kreatywne, to pisanie takich aplikacji, aby ich rezultatem był obraz lub dźwięk. W odróżnieniu od typowych programów, w których rezultat obliczeń najcześciej wypisuje się do konsoli. Co więcej, tworzenie obrazu i dźwięku powinno być maksymalnie uproszczone. Żadnej konfiguracji. Wszystko po prostu działa.
+
+## Czym jest programowanie kreatywne
+Programowanie kreatywne jest podkradzionym pojęciem z angielskiego _Creative Coding_. Oznacza ono pewne oryginalne podejście do programowania i/lub nauki programowania. **W programowaniu kreatywnym skupiamy się na tworzeniu wizualnych rezultatów naszego programu**, podczas gdy w tradycyjnej nauce programowania nacisk jest kładziony głównie na algorytmy, a rezultat działania programu wypisujemy najczęściej na konsolę lub do pliku tekstowego.
+
+Narysowanie czegoś na ekranie komputera może się wydawać bardzo złożonym procesem i dlatego jeszcze jakiś czas temu początkujący programiści nie mieli wyjścia. Każdy musiał przez długie godziny pisać wspaniałe aplikacje, których jedynym rezultatem był napis w konsoli. Bardzo szybko jednak zaczęto dostrzegać potęgę w wizualizacji rezultatów. Powstało wiele narzędzi, które w dosłownie kilku linijkach narysują cokolwiek zaprogramujemy. 
+
+Jeśli ktoś w obecnych czasach chce przekonać do programowania kogoś, kto nigdy wcześniej nie programował i robi to pokazując tej osobie konsolę, to wyrządza krzywdę jej oraz sobie. Każda osoba ucząca się programowania powinna widzieć cel swojej nauki. Ze szkoły jesteśmy przyzwyczajeni, że rozwiązujemy abstrakcyjne zadania z ciągiem geometrycznym nie widząc w tym sensu. To nie jest dobre podejście do nauki czegokolwiek, a w szczególności programowania.
+
+Teraz wyobraźmy sobie, że pokazujemy komuś "o co chodzi w tym programowaniu", ale nie zaczynamy nauki od typów zmiennych `int`, `float`, ani warunków czy pętli. To wszystko będzie zbyt abstrakcyjne i odrealnione. Zamiast tego polećmy zapisać taki kod:
+```processing
+size(500, 500);
+circle(250, 250, 100);
+```
+image::processing-kolko.png[Processing,align=center,200,200]
+
+To wszystko co musimy napisać, aby narysować na ekranie komputera koło o promieniu 100 ze środkiem w punkcie (250, 250). Jeśli czyimś pierwszym w życiu programem będzie coś, co można _zobaczyć_, a nie tylko _przeczytać_, to będziemy mieli do czynienia z zupełnie innym poziomem zaciekawienia, a w niedalekiej przyszłości być może przerodzi się to w pasję do przelewania swojej kreatywności w kody programów.
+
+Programowanie kreatywne, to właśnie maksymalne uproszczenie programowania multimedialnych elementów komputera. To pojęcie jest bardzo ogólne i odnosi się właśnie do tworzenia małych multimedialnych programów.
+
+## Co jest złego w konsoli
+
+Nie twierdzę, że pisanie programów, których rezultat oglądamy w postaci tekstu wypisywanego do konsoli jest _bardzo złe_. Są po prostu lepsze metody nauki programowania od podstaw. Ja sam zaczynałem od konsoli i bardzo żałuję, że tak późno odkryłem narzędzia, które tutaj przedstawię.
+
+Definicja _programu_ jako maszynki, do której wkładamy dane i wyciągamy dane już od dawna jest przestarzała i zbyt niedokładna. Aplikacje multimedialne, np. gry komputerowe przetwarzają duże ilości danych, ale rezultat ich działania obserwujemy w formie obrazu i dźwięku. Ludzie chcą i potrzebują bodźców. Czegoś co rozpali ich kreatywność. Używajmy konsoli, ale nie ograniczajmy się do niej, bo **można lepiej**.
+
+## Programowanie kreatywne - przykłady
+
+Aby zacząć programować, wystarczy edytor tekstu oraz kompilator. Jeśli chcemy pobawić się programowaniem kreatywnym, to będziemy potrzebować dodatkowego narzędzia, biblioteki, środowiska, które maksymalnie uprości nam rysowanie po ekranie komputera, odtwarzanie dźwięku, filmu itd. z poziomu kodu programu. Bez tych narzędzi musielibyśmy spędzić mnóstwo czasu oraz napisać setki linii kodu, w celu wyświetlenia najprostszej figury na ekranie. Oczywiście, że jest to możliwe, ale jeśli chcemy po prostu coś wyświetlić, to byłaby to strata czasu.
+
+Oba przedstawione poniżej narzędzia do programowania kreatywnego udostępniają bardzo łatwy w obsłudze interfejs do m.in.:
+
+* Rysowania figur 2D
+* Rysowania w przestrzeni 3D z akceleracją GPU
+* Przetwarzania i wyświetlania obrazów
+* Przetwarzania i odtwarzania dźwięku
+* Komunikacji przez port szeregowy (USB)
+* Komunikacji sieciowej
+* Zbiór funkcji matematycznych do mnożenia wektorów, macierzy itd.
+* Wiele, wiele więcej...
+
+Chcesz kogoś nauczyć pętli? Możesz po prostu pokazać jak wypisać liczby na ekranie:
+```cpp
+for (int i = 0; i < 10; i++)
+    println(i);
+```
+Czy coś takiego jest ciekawe i czy zainspiruje kogoś do eksperymentowania?
+
+A teraz spróbujmy wyjaśnić komuś działanie pętli w inny sposób. Niech narysuje serię kółek na ekranie.
+```java
+size(500, 500);
+for (int i = 0; i < 10; i++)
+    circle(i*50, i*50, 50);
+```
+Rezultat działania powyższego programu jest następujący:
+
+image::processing-petla.png[Pętla, align=center, 300]
+
+Teraz "pętla" służy tylko za narzędzie do zrobienia czegoś ciekawego. Nie jest celem nauki samym w sobie. Celem nauki jest rysowanie figur na ekranie i *przy okazji* używanie pętli. Taka nauka zachęca do eksperymentowania!
+
+### Processing
+
+image::processing-logo.png[Processing,align=center, 200]
+
+Jednym z najpopularniejszych narzędzi do programowania kreatywnego jest Processing. Użyłem słowa "narzędzie", bo pod tą nazwą kryje się wiele elementów. Processing jest biblioteką, a więc zbiorem funkcji, które możemy uruchamiać. Wraz z tą biblioteką Processing zapewnia swój własny edytor kodu, z poziomu którego możemy jednym przyciskiem skompilować i uruchomić kod.
+
+Przykład z kołem, który wyżej pokazałem jest właśnie kodem Processinga, a mówiąc ściślej, funkcje których użyłem pochodzą z tej biblioteki. 
+
+Języki programowania, dla których dostępny jest Processing:
+
+* Java
+* JavaScript
+* Python
+
+Dodatkowo aplikacje można również uruchamiać na RaspberryPi oraz systemie Android.
+
+### openFrameworks
+
+image::of-logo.png[openFrameworks, align=center, 200]
+
+Podobny zestaw narzędzi do Processing. Zasadniczą różnicą pomiędzy tymi dwoma narzędziami jest to, że openFramework jest napisany w języku {cpp} i tego właśnie języka można używać do tworzenia swoich aplikacji multimedialnych.
+
+Na pewno w przyszłości poświęcę osobny wpis do omówienia możliwości tej biblioteki. Programy napisane w {cpp} będą prawdopodobnie dużo szybsze niż te zaprogramowane w Javie, JavaScript'ie czy Pythonie. Sporo jednak zależy od samego programisty. Instalacja openFramework jest nieco trudniejsza, bo nie udostępniają oni swojego IDE tak, tak robi ro Processing, a sam język {cpp} jest mniej wybaczalny.
+
+## Co potrafi Processing
+
+Poniżej umieszczam kilka źródeł, w których można obejrzeć co ludzie wyczyniają z technologią rysowania po ekranie. Wszystkie przykłady można uruchomić w przeglądarce.
+
+* http://mariuswatz.com/works/abstract01js
+* http://haptic-data.com/toxiclibsjs/examples/soft-body-square
+* https://happycoding.io/examples/p5js/fireworks
+* http://mg8.org/processing/bt.html
+* http://haptic-data.com/toxiclibsjs/examples/force-directed-graph-p5
