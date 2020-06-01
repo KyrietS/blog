@@ -48,7 +48,7 @@ To wszystko z kwestii technicznych, co trzeba wiedzieć, aby taką stronę stwor
 * GitHub Pages
 * GitHub Actions / Travis CI / ...
 
-Jekyll sam w sobie jest napisany w języku Ruby. Podobnie jak wszystkie wtyczki do niego, których ten blog używa już kilka. Umyślnie jednak nie wymieniłem na tej liście języka Ruby, ponieważ towrząc swoją stronę nie trzeba nawet wiedzieć o jego istnieniu. Szczerze mówiąc, to ja chyba na oczy nie widziałem nawet jednej linijki tego języka podczas przygody z Jekyll'em, co zaliczam na plus.
+Jekyll sam w sobie jest napisany w języku Ruby. Podobnie jak wszystkie wtyczki do niego, które są używane na tym blogu. Umyślnie jednak nie wymieniłem na tej liście języka Ruby, ponieważ tworząc swoją stronę nie trzeba nawet wiedzieć o jego istnieniu. Szczerze mówiąc, to ja chyba na oczy nie widziałem nawet jednej linijki tego języka podczas przygody z Jekyll'em, co zaliczam na plus.
 
 Oczywiście w późniejszym czasie okaże się, że dojdzie jeszcze trochę nowej wiedzy do opanowania, np. składnia YAML (to taki JSON bez klamerek), ale jest to na tyle proste, że można uczciwie pominąć fakt opanowania tego.
 
