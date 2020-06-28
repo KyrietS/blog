@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest  # Budowanie strony na Ubuntu
 
     steps:
-    - name: Set Poland's timezone
+    #- name: Set Poland's timezone
       #run: sudo timedatectl set-timezone Europe/Warsaw
     
     - name: Checkout the files
