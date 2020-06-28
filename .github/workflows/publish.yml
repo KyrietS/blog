@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest  # Budowanie strony na Ubuntu
 
     steps:
+    - name: Set Poland's timezone
+      run: sudo timedatectl set-timezone Europe/Warsaw
+    
     - name: Checkout the files
       uses: actions/checkout@v2     # Zasysa pliki z tego repo ($GITHUB_WORKSPACE)
 
