@@ -24,10 +24,10 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gems-
 
-    - name: Set up Ruby 2.6         # Instalowanie Ruby
+    - name: Set up Ruby 2.5         # Instalowanie Ruby
       uses: actions/setup-ruby@v1
       with:
-        ruby-version: 2.6.x
+        ruby-version: 2.5.x
 
     - name: Install GNU Scientific Library    # Instalowanie biblioteki do rb-gsl, która znacząco przyspiesza LSI
       run: sudo apt-get -y install libgsl-dev
